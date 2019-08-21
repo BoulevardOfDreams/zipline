@@ -91,6 +91,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+tcl/
 
 # Spyder project settings
 .spyderproject
@@ -104,3 +105,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#license
+LICENSE.txt
