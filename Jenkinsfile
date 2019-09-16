@@ -15,6 +15,7 @@ pipeline {
 				always {
 					cat unit_test/xml_result/out.xml
 				}
+			}
         }
         stage('Deploy') {
             steps {
