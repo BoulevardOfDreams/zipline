@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                pytest unit_test
+                sh 'pytest unit_test'
             }
 			post {
 				always {
