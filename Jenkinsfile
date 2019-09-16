@@ -9,11 +9,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pytest unit_test'
+                sh 'pytest unit_test --junit-xml=unit_test/xml_result/out.xml'
             }
 			post {
 				always {
-					echo 'pass'
+					sh 'cat unit_test/xml_result/out.xml'
 				}
 			}
         }
