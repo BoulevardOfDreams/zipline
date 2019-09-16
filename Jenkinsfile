@@ -9,11 +9,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                pytest unit_test --junit-xml=unit_test/xml_result/out.xml
+                pytest unit_test
             }
 			post {
 				always {
-					cat unit_test/xml_result/out.xml
+					echo 'pass'
 				}
 			}
         }
