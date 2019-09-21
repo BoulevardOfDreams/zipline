@@ -1,0 +1,71 @@
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (windows-amd64, nanoserver-1809)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+	
+Docker Commands:
+
+## List Docker CLI commands
+docker
+docker container --help
+
+## Display Docker version and info
+docker --version
+docker vers https://docs.docker.com/get-started/part3/ion
+docker info
+
+## Execute Docker image
+docker run hello-world
+
+## List Docker images
+docker image ls
+
+## List Docker containers (running, all, all in quiet mode)
+docker container ls
+docker container ls --all
+docker container ls -aq
+
+## Stopping Docker container
+docker container stop container-id
+
+docker build -t friendlyhello .  			# Create image using this directory's Dockerfile
+docker run -p 4000:80 friendlyhello  		# Run "friendlyhello" mapping port 4000 to 80
+docker run -d -p 4000:80 friendlyhello      # Same thing, but in detached mode
+docker container ls                         # List all running containers
+docker container ls -a             			# List all containers, even those not running
+docker container stop <hash>           		# Gracefully stop the specified container
+docker container kill <hash>         		# Force shutdown of the specified container
+docker container rm <hash>        			# Remove specified container from this machine
+docker container rm $(docker container ls -a -q)         # Remove all containers
+docker image ls -a                             			 # List all images on this machine
+docker image rm <image id>            	    # Remove specified image from this machine
+docker image rm $(docker image ls -a -q)    # Remove all images from this machine
+docker login             					# Log in this CLI session using your Docker credentials
+docker tag <image> username/repository:tag  # Tag <image> for upload to registry
+docker push username/repository:tag         # Upload tagged image to registry
+docker run username/repository:tag          # Run image from a registry
+docker commit <ID> username/repository:tag  # commit container into images
+
+#Get into docker container for Jenkins file
+https://medium.com/@sdanerib/getting-started-with-jenkins-docker-part-iii-reset-jenkins-admin-password-when-you-have-a-ff81ffa6774f
+
+
+#Escape from linux container
+ctrl-p ->  ctrl-q
+
+
+#Initial admin password and logs
+docker logs <container-name>
+
+#Git oauth (Jenkins)
+d15a934a91e745ce8cd99f957df91ecc2f09dc7a
+
+#Run jenkinsci/blueocean
+ docker run -p 4040:8080 -u root --rm -d -p 50000:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock teotingyau/jenkins:v2.0
+
+#Build dockerfile
+docker build -t "teotingyau/jenkins:v2.0" C:\Users\uia64930\Desktop\Integration\docker
