@@ -49,7 +49,7 @@ docker tag <image> username/repository:tag  # Tag <image> for upload to registry
 docker push username/repository:tag         # Upload tagged image to registry
 docker run username/repository:tag          # Run image from a registry
 docker commit <ID> username/repository:tag  # commit container into images
-
+docker history <image>                      # show the history layer and id of image
 #Get into docker container for Jenkins file
 https://medium.com/@sdanerib/getting-started-with-jenkins-docker-part-iii-reset-jenkins-admin-password-when-you-have-a-ff81ffa6774f
 
@@ -65,7 +65,47 @@ docker logs <container-name>
 d15a934a91e745ce8cd99f957df91ecc2f09dc7a
 
 #Run jenkinsci/blueocean
- docker run -p 4040:8080 -u root --rm -d -p 50000:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock teotingyau/jenkins:v2.0
+docker run -p 4040:8080 -u root --rm -d -p 50000:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock teotingyau/jenkins:v4.0
 
 #Build dockerfile
 docker build -t "teotingyau/jenkins:v2.0" C:\Users\uia64930\Desktop\Integration\docker
+
+#Docker toolbox port forwarding
+https://stackoverflow.com/questions/9537751/virtualbox-port-forward-from-guest-to-host
+
+#Check volume mount
+docker inspect <container-name>
+docker volume ls
+docker volume inspect <name>
+https://blog.sixeyed.com/docker-volumes-on-windows-the-case-of-the-g-drive/
+
+#Volume(dockerfile) , volume create , docker run -v?
+https://stackoverflow.com/questions/34809646/what-is-the-purpose-of-volume-in-dockerfile
+
+#Check linux system
+uname -r
+
+#Check linux username
+whoami
+
+#docket toolbox system 
+boot2docker (not linux or ubuntu)
+
+#Mount docker toolbox drive(boot2docker) to host drive (PC)
+sudo mount -t vboxsf -o uid=0,gid=0
+ Jenkins_home /mnt/sda1/var/lib/docker/volumes/jenkins-data/_data
+
+#How to create Jenkins_home
+http://support.divio.com/en/articles/646695-how-to-use-a-directory-outside-c-users-with-docker-toolbox-docker-for-windows
+
+#Mount shared drive to docker volume tips
+https://stackoverflow.com/questions/43181654/locating-data-volumes-in-docker-desktop-windows
+https://www.howtogeek.com/187703/how-to-access-folders-on-your-host-machine-from-an-ubuntu-virtual-machine-in-virtualbox/
+
+
+#find uid, gid and groups
+id <username>
+
+#change to root user
+sudo su
+
