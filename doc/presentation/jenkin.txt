@@ -109,3 +109,5 @@ id <username>
 #change to root user
 sudo su
 
+#jenkins python test
+https://mdyzma.github.io/2017/10/14/python-app-and-jenkins/
