@@ -12,3 +12,12 @@
 	
 4.) invoke pytest with xml result
 	pytest root/ --junitxml=unit_test\xml_result\out.xml
+	
+5.) pytest coverage
+	pip install pytest-cov
+	
+6.) coverage with html generation (at htmlcov)
+	pytest --cov-report xml:unit_test\xml_result\coverage.xml --cov=pkg.my_multiply unit_test\test_multiply.py
+	
+7.) more coverage tips
+	https://pytest-cov.readthedocs.io/en/latest/reporting.html
