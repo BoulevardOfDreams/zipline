@@ -21,3 +21,6 @@
 	
 7.) more coverage tips
 	https://pytest-cov.readthedocs.io/en/latest/reporting.html
+	
+8.) jenkins python test
+	https://mdyzma.github.io/2017/10/14/python-app-and-jenkins/
