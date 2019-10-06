@@ -65,7 +65,7 @@ docker logs <container-name>
 d15a934a91e745ce8cd99f957df91ecc2f09dc7a
 
 #Run jenkinsci/blueocean
-docker run -p 4040:8080 -u root --rm -d -p 50000:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock teotingyau/jenkins:v4.0
+docker run -p 8080:8080 -u root --rm -d -p 49500:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock teotingyau/jenkins:v4.0
 
 #Build dockerfile
 docker build -t "teotingyau/jenkins:v2.0" C:\Users\uia64930\Desktop\Integration\docker
