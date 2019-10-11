@@ -50,6 +50,7 @@ docker push username/repository:tag         # Upload tagged image to registry
 docker run username/repository:tag          # Run image from a registry
 docker commit <ID> username/repository:tag  # commit container into images
 docker history <image>                      # show the history layer and id of image
+docker tag <ori image name> <new image name># tag existing image
 #Get into docker container for Jenkins file
 https://medium.com/@sdanerib/getting-started-with-jenkins-docker-part-iii-reset-jenkins-admin-password-when-you-have-a-ff81ffa6774f
 
@@ -116,3 +117,10 @@ find / -name *.jpg
 #jenkins parallel build
 https://jenkins.io/doc/book/pipeline/syntax/
 https://jenkins.io/blog/2017/09/25/declarative-1/
+
+#docker machine url
+docker-machine url
+
+#ways of starting jenkins agent
+https://wiki.jenkins.io/display/JENKINS/Distributed+builds
+
