@@ -1,17 +1,21 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { 
+            image 'teotingyau/ubuntu_slave:v1.0' 
+            args '-v /Jenkins_home:/root'
+        }
+    }
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
+                sh 'cd /root/workspace/python_build'
                 sh 'pytest unit_test --junit-xml=unit_test/xml_result/out.xml'
             }
-			
         }
 		stage('Static code metrics'){
 			steps {
@@ -19,7 +23,7 @@ pipeline {
 			}
 			post {
 				always {
-					cobertura coberturaReportFile: 'unit_test/xml_result/coverage.xml'
+					cobertura coberturaReportFile: 'unit_test/xpkml_result/coverage.xml'
 				}
 			}
 		}
