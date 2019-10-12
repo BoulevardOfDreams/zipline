@@ -23,7 +23,7 @@ pipeline {
 			}
 			post {
 				always {
-					cobertura coberturaReportFile: 'unit_test/xpkml_result/coverage.xml'
+					cobertura coberturaReportFile: 'unit_test/xml_result/coverage.xml'
 				}
 			}
 		}
