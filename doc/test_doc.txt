@@ -1,0 +1,26 @@
+1.) verbose mode and test specific case
+	pytest -v test_mymod_2.py::test_anagram
+	
+2.) run specific test case
+	pytest test_mod.py::TestClass::test_method
+
+3.) run from root
+	pytest testing/
+	
+	further info:
+	http://doc.pytest.org/en/latest/pythonpath.html#pytest-vs-python-m-pytest
+	
+4.) invoke pytest with xml result
+	pytest root/ --junitxml=unit_test\xml_result\out.xml
+	
+5.) pytest coverage
+	pip install pytest-cov
+	
+6.) coverage with html generation (at htmlcov)
+	pytest --cov-report xml:unit_test\xml_result\coverage.xml --cov=pkg.my_multiply unit_test\test_multiply.py
+	
+7.) more coverage tips
+	https://pytest-cov.readthedocs.io/en/latest/reporting.html
+	
+8.) jenkins python test
+	https://mdyzma.github.io/2017/10/14/python-app-and-jenkins/

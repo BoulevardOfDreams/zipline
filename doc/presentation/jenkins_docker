@@ -1,0 +1,8 @@
+From teotingyau/jenkins:v1.0
+USER root
+RUN mkdir /my_app
+WORKDIR /my_app
+COPY requirements.txt /my_app
+RUN ls -la
+RUN apk update
+RUN apk add py-pip
