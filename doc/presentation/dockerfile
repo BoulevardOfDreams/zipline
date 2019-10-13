@@ -1,0 +1,25 @@
+FROM ubuntu:18.04
+
+# Make sure the package repository is up to date.
+# -q quiet (log level) -y assumed yes for queries
+RUN apt-get update && \
+    apt-get -qy full-upgrade && \
+    apt-get install -qy git && \
+# Install pip
+    apt-get install -qy python-pip && \
+# Install pytest, xmlrunner, pytest-cov
+	pip install pytest     &&\
+	pip install xmlrunner  &&\
+	pip install pytest-cov 
+
+# Set environment variables.
+ENV HOME /root
+
+# Define working directory.
+WORKDIR /root
+
+# Listen on port
+EXPOSE 20
+
+# Define default command.
+CMD ["/bin/bash"]

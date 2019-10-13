@@ -13,6 +13,7 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
+                sh 'echo $(pwd)'
                 sh 'cd /root/workspace/python_build'
                 sh 'pytest unit_test --junit-xml=unit_test/xml_result/out.xml'
             }
