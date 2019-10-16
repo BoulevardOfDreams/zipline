@@ -1,5 +1,5 @@
 pipeline {
-	agent none
+	agent any
     
     stages {
         stage('Build') {
@@ -15,6 +15,9 @@ pipeline {
 							image 'teotingyau/ubuntu_slave:v1.0'
 						}
 					}
+					options {
+						skipDefaultCheckout true
+					}
 					steps {
 						sh 'pytest unit_test --junit-xml=unit_test/xml_result/out.xml'
 					}
@@ -25,6 +28,9 @@ pipeline {
 						docker { 
 							image 'teotingyau/ubuntu_slave:v1.0'
 						}
+					}
+					options {
+						skipDefaultCheckout true
 					}
 					steps {
 						sh 'pytest --cov-report xml:unit_test/xml_result/coverage.xml --cov=pkg.my_multiply unit_test/test_multiply.py'
