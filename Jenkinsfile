@@ -13,6 +13,7 @@ pipeline {
 					agent {
 						docker { 
 							image 'teotingyau/ubuntu_slave:v1.0'
+							reuseNode true
 						}
 					}
 					options {
@@ -27,6 +28,7 @@ pipeline {
 					agent {
 						docker { 
 							image 'teotingyau/ubuntu_slave:v1.0'
+							reuseNode true
 						}
 					}
 					options {
