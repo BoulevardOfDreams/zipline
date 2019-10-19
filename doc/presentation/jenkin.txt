@@ -51,7 +51,8 @@ docker run username/repository:tag          # Run image from a registry
 docker commit <ID> username/repository:tag  # commit container into images
 docker history <image>                      # show the history layer and id of image
 docker tag <ori image name> <new image name># tag existing image
-#Get into docker container for Jenkins file
+
+#Reset jenkins user password
 https://medium.com/@sdanerib/getting-started-with-jenkins-docker-part-iii-reset-jenkins-admin-password-when-you-have-a-ff81ffa6774f
 
 
@@ -66,10 +67,18 @@ docker logs <container-name>
 d15a934a91e745ce8cd99f957df91ecc2f09dc7a
 
 #Run jenkinsci/blueocean
-docker run -p 8080:8080 -u root --rm -d -p 50000:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock teotingyau/jenkins:v5.0
+docker run -p 8080:8080 -u root --rm -d -p 50000:50000 -v /Jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock teotingyau/jenkins:v5.0
+
+#Run with current working directory 
+docker run -t -d -u 0:0 -w /var/jenkins_home/workspace/python_build teotingyau/ubuntu_slave:v1.0
+
+#Container in vbox and docker?????
+INSIDE VIRTUAL BOX      -> CAN DETECT CONTAINERS AND IMAGES
+INSIDE DOCKER CONTAINER -> CAN DETECT SAME CONTAINER AND IMAGES
 
 #Build dockerfile
 docker build -t "teotingyau/jenkins:v2.0" C:\Users\uia64930\Desktop\Integration\docker
+docker build -t "teotingyau/jenkins:v2.0" -f <dockerfile name> .
 
 #Docker toolbox port forwarding
 https://stackoverflow.com/questions/9537751/virtualbox-port-forward-from-guest-to-host
@@ -85,6 +94,7 @@ https://stackoverflow.com/questions/34809646/what-is-the-purpose-of-volume-in-do
 
 #Check linux system
 uname -r
+cat /etc/os-release'
 
 #Check linux username
 whoami
@@ -123,4 +133,7 @@ docker-machine url
 
 #ways of starting jenkins agent
 https://wiki.jenkins.io/display/JENKINS/Distributed+builds
+
+#solve DNS error
+append 'nameserver 8.8.8.8' at /etc/resolve.cfg
 

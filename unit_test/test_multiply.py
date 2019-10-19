@@ -1,5 +1,6 @@
 import unittest
 import xmlrunner
+import time
 from pkg.my_multiply import multiply
  
 class TestMultiply(unittest.TestCase):
@@ -24,10 +25,12 @@ class TestMultiply(unittest.TestCase):
 	
     def test_numbers_3_4(self):
         print ('test_strings_3_4  <============================ actual test code')
+        time.sleep(5)
         self.assertEqual( multiply(3,4), 12)
  
     def test_strings_a_3(self):
         print ('test_strings_a_3  <============================ actual test code')
+        time.sleep(5)
         self.assertEqual( multiply('a',3), 'aaa')
  
  
