@@ -51,4 +51,14 @@ pipeline {
             }
         }
     }
+	post {
+        always {
+            emailext {
+				to	: 'tingyau95@gmail.com'
+				body: 'A Test EMail', 
+				recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+				subject: 'Test'
+			}
+        }
+    }
 }
