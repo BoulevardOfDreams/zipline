@@ -54,10 +54,12 @@ pipeline {
 	post {
         always {
             emailext (
-				to	: 'emailautomation95@gmail.com',
-				body: 'A Test EMail', 
+				to				  : "emailautomation95@gmail.com",
+				body			  : "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\nMore info at: ${env.BUILD_URL}", 
 				recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-				subject: 'Test'
+				subject			  : "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+				attachmentsPattern: "unit_test/xml_result/*.xml",
+				attachLog		  : true
 			)
         }
     }
