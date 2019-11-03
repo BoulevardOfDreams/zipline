@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'printenv | sort'
             }
         }
 		stage('Run Tests'){
@@ -49,6 +50,18 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+	post {
+        always {
+            emailext (
+				to				  : "emailautomation95@gmail.com",
+				body			  : "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\nMore info at: ${env.BUILD_URL}", 
+				recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+				subject			  : "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+				attachmentsPattern: "unit_test/xml_result/*.xml",
+				attachLog		  : true
+			)
         }
     }
 }
