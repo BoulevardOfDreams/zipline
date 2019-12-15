@@ -106,5 +106,5 @@ tcl/
 # mypy
 .mypy_cache/
 
-#license
+# license
 LICENSE.txt
